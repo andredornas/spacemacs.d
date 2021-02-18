@@ -335,7 +335,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner "~/.spacemacs.d/banners/practicalli-logo.svg"
+   dotspacemacs-startup-banner 'official
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -375,13 +375,13 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
 
-   dotspacemacs-themes '(doom-gruvbox-light
+   dotspacemacs-themes '(spacemacs-dark
+			 doom-solarized-dark
+			 doom-gruvbox-light
                          doom-solarized-light
                          doom-sourcerer
                          kaolin-valley-dark
-                         doom-solarized-dark
-                         spacemacs-light
-                         spacemacs-dark)
+                         spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -390,7 +390,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(doom)
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -399,8 +399,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Fira Code"
-                               :size 16.0
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 10.0
                                :weight normal
                                :width normal)
 
@@ -673,17 +673,17 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; custom theme modification
   ;; - overriding default height of modeline
-  (setq-default
-    theming-modifications
-      '((spacemacs-light
-          (mode-line :height 0.92)
-          (mode-line-inactive :height 0.92))
-        (doom-solarized-light
-         (mode-line :height 0.92)
-         (mode-line-inactive :height 0.92))
-        (doom-gruvbox-light
-         (mode-line :height 0.80)
-         (mode-line-inactive :height 0.92))))
+  ;; (setq-default
+  ;;   theming-modifications
+  ;;     '((spacemacs-light
+  ;;         (mode-line :height 0.92)
+  ;;         (mode-line-inactive :height 0.92))
+  ;;       (doom-solarized-light
+  ;;        (mode-line :height 0.92)
+  ;;        (mode-line-inactive :height 0.92))
+  ;;       (doom-gruvbox-light
+  ;;        (mode-line :height 0.80)
+  ;;       (mode-line-inactive :height 0.92))))
 
   )  ;; End of dotspacemacs/user-int
 
@@ -734,16 +734,16 @@ before packages are loaded."
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Doom theme settings
-  (setq doom-gruvbox-light-variant "hard")
+  ;; (setq doom-gruvbox-light-variant "hard")
   ;;
-  (defun practicalli/setup-custom-doom-modeline ()
-    (doom-modeline-set-modeline 'practicalli-modeline 'default))
+  ;; (defun practicalli/setup-custom-doom-modeline ()
+  ;;   (doom-modeline-set-modeline 'practicalli-modeline 'default))
   ;;
-  (with-eval-after-load 'doom-modeline
-    (doom-modeline-def-modeline 'practicalli-modeline
-      '(workspace-name window-number modals persp-name buffer-info remote-host vcs)
-      '(repl debug lsp process matches checker buffer-position word-count parrot selection-info misc-info))
-    (practicalli/setup-custom-doom-modeline))
+  ;; (with-eval-after-load 'doom-modeline
+  ;;   (doom-modeline-def-modeline 'practicalli-modeline
+  ;;     '(workspace-name window-number modals persp-name buffer-info remote-host vcs)
+  ;;     '(repl debug lsp process matches checker buffer-position word-count parrot selection-info misc-info))
+  ;;  (practicalli/setup-custom-doom-modeline))
   ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -846,7 +846,7 @@ before packages are loaded."
   ;;
   ;; Use Spacemacs as the $EDITOR (or $GIT_EDITOR) for git commits messages
   ;; when using git commit on the command line
-  (global-git-commit-mode t)
+  ;; (global-git-commit-mode t)
   ;;
   ;; Set locations of all your Git repositories
   ;; with a number to define how many sub-directories to search
